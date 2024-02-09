@@ -62,29 +62,27 @@ function vowelBonusScorer(word) {
 let scrabbleScorer = function (word) {
   let score = 0;
   for(let i = 0; i < word.length; i++) {
-    score += Number(newPointStructure[word[i]]);
+    //score += Number(newPointStructure[word[i]]);
+    score += newPointStructure[word[i]];
   }
   return score;
 };
 
 const scoringAlgorithms = [
     {
-        name: 'Simple Score',
-        number: '0',
+        name: 'Simple Scorer',
         description: '0 - One point per character.',
-        scoringFunction: simpleScorer
+        scorerFunction: simpleScorer
 },
     {
-        name: 'Vowel Bonus Score',
-        number: '1',
+        name: 'Vowel Bonus Scorer',
         description: '1 - Vowels are worth 3 points.',
-        scoringFunction: vowelBonusScorer
+        scorerFunction: vowelBonusScorer
 },
     {
-        name: 'Scrabble Score',
-        number: '2',
+        name: 'Scrabble Scorer',
         description: '2 - Uses scrabble point system.',
-        scoringFunction: scrabbleScorer
+        scorerFunction: scrabbleScorer
 }];
 
 function scorerPrompt(word) {
@@ -95,13 +93,13 @@ function scorerPrompt(word) {
     \nPlease enter 0, 1, or 2: `);
   
     if (numberInput === '0') {
-      return (`Score for ${word}: ${scoringAlgorithms[0].scoringFunction(word)}`);
+      return (`Score for ${word}: ${scoringAlgorithms[0].scorerFunction(word)}`);
     } else if (numberInput === '1') {
-      return (`Score for ${word}: ${scoringAlgorithms[1].scoringFunction(word)}`);
+      return (`Score for ${word}: ${scoringAlgorithms[1].scorerFunction(word)}`);
     } else if (numberInput === '2') {
-      return  (`Score for ${word}: ${scoringAlgorithms[2].scoringFunction(word)}`)
+      return  (`Score for ${word}: ${scoringAlgorithms[2].scorerFunction(word)}`)
     } else {
-      console.log('Invaild number');
+      console.log('Invaild input');
       scorerPrompt();
     }
   }

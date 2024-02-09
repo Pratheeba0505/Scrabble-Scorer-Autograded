@@ -112,6 +112,8 @@ describe("Scrabble Scorer solution", function() {
 	// scrabbleScorer tests //
 	it("contains a scrabbleScorer function", function() {
 		expect(solution.scrabbleScorer).toEqual(expect.any(Function));
+		// it("contains a scrabbleScorer function", function() {
+		// 	expect(typeof solution.scrabbleScorer).toBe('function');
 	});
 
 	it("scrabbleScorer returns an integer score", function() {
@@ -140,7 +142,10 @@ describe("Scrabble Scorer solution", function() {
 		}));
 		expect(solution.scoringAlgorithms[2]).toEqual(expect.objectContaining({
 			scorerFunction: solution.scrabbleScorer
+
+
+		
 		}));
 	});
 	
-});
+ });
